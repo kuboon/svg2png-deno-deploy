@@ -65,22 +65,18 @@ const handleRequest = async (req: Request): Promise<Response> => {
     if (svg instanceof Response) return svg;
 
     await initialize(Deno.readFile("./svg2png.wasm")).catch(() => {});
+    const fontName = 'BIZ UDPGothic'
     const options: ConverterOptions & ConvertOptions = {
       ...getOptionsFromUrl(req.url),
       fonts: await Promise.all([
-        Deno.readFile("NotoSansJP-Black.otf"),
-        Deno.readFile("NotoSansJP-Bold.otf"),
-        Deno.readFile("NotoSansJP-Light.otf"),
-        Deno.readFile("NotoSansJP-Medium.otf"),
-        Deno.readFile("NotoSansJP-Regular.otf"),
-        Deno.readFile("NotoSansJP-Thin.otf"),
+        Deno.readFile("BIZUDPGothic-Regular.ttf"),
       ]),
       defaultFontFamily: {
-        sansSerifFamily: "Noto Sans JP",
-        serifFamily: "Noto Sans JP",
-        cursiveFamily: "Noto Sans JP",
-        fantasyFamily: "Noto Sans JP",
-        monospaceFamily: "Noto Sans JP",
+        sansSerifFamily: fontName,
+        serifFamily: fontName,
+        cursiveFamily: fontName,
+        fantasyFamily: fontName,
+        monospaceFamily: fontName,
       },
     };
 
