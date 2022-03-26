@@ -1,0 +1,23 @@
+{
+	"name": "Ubuntu asdf",
+	"runArgs": ["--init"],
+	"build": {
+		"dockerfile": "Dockerfile"
+	},
+
+	"settings": {
+		"deno.enable": true,
+		"deno.lint": true,
+		"editor.defaultFormatter": "denoland.vscode-deno"
+	},
+
+	"extensions": [
+		"denoland.vscode-deno"
+	],
+
+	"remoteUser": "vscode",
+	"features": {
+		"git": "latest",
+		"github-cli": "latest"
+	}
+}
